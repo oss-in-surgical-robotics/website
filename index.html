@@ -3,22 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>HSMR 2025 Workshop: Healing through collaboration</title>
-
+  <title>HSMR 2026 Workshop: From Code to Care</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
   <style>
     html, body {
       max-width: 100%;
       overflow-x: hidden;
     }
-
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       scroll-behavior: smooth;
     }
-
     .top-bar {
       position: fixed;
       top: 0;
@@ -28,14 +24,12 @@
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     header {
       padding: 10px 20px;
       text-align: center;
       font-size: 30px;
       font-weight: bold;
     }
-
     nav.desktop-nav {
       display: flex;
       justify-content: center;
@@ -43,7 +37,6 @@
       background: transparent;
       align-items: center;
     }
-
     nav.desktop-nav a {
       color: #f2f2f2;
       text-align: center;
@@ -52,19 +45,16 @@
       font-size: 17px;
       transition: background-color 0.3s, color 0.3s;
     }
-
     nav.desktop-nav a:hover,
     .dropdown:hover .dropbtn {
       background-color: rgba(255, 255, 255, 0.2);
       color: #ffffff;
       border-radius: 5px;
     }
-
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     .dropbtn {
       background: transparent;
       color: #f2f2f2;
@@ -74,7 +64,6 @@
       cursor: pointer;
       font-family: 'Open Sans', sans-serif;
     }
-
     .dropdown-content {
       display: none;
       position: absolute;
@@ -83,7 +72,6 @@
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
       z-index: 1001;
     }
-
     .dropdown-content a {
       color: white;
       padding: 12px 16px;
@@ -91,22 +79,18 @@
       display: block;
       font-size: 16px;
     }
-
     .dropdown-content a:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .mobile-nav {
       display: none;
       text-align: center;
       padding: 10px;
       background-color: #6a11cb;
     }
-
     .mobile-nav select {
       font-size: 16px;
       padding: 10px;
@@ -115,14 +99,12 @@
       width: 90%;
       max-width: 300px;
     }
-
     .content {
       margin-top: 150px;
       padding: 0;
       width: 100%;
       overflow-x: hidden;
     }
-
     iframe {
       width: 100%;
       max-width: 100%;
@@ -130,26 +112,21 @@
       border: none;
       overflow-x: hidden;
     }
-
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
       }
-
       .mobile-nav {
         display: block;
       }
-
       header {
         font-size: 22px;
       }
-
       .content {
         margin-top: 200px;
         width: 100%;
         overflow-x: hidden;
       }
-
       iframe {
         width: 100%;
         max-width: 100%;
@@ -157,12 +134,10 @@
       }
     }
   </style>
-
   <script>
     function loadPage(page) {
       document.getElementById('content-frame').src = page;
     }
-
     function onMobileNavChange(selectEl) {
       const page = selectEl.value;
       loadPage(page);
@@ -171,51 +146,52 @@
 </head>
 <body>
 
-  <div class="top-bar">
-    <header>HSMR 2025 Workshop: Healing through collaboration</header>
+<div class="top-bar">
+  <header>HSMR 2026 Workshop: From Code to Care</header>
 
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
-      <a href="#" onclick="loadPage('welcome.html')">Welcome</a>
-      <a href="#" onclick="loadPage('callforposters.html')">Call for posters</a>
-      <a href="#" onclick="loadPage('program.html')">Program</a>
-      <a href="#" onclick="loadPage('importantdates.html')">Important Dates</a>
-      <a href="#" onclick="loadPage('speakers.html')">Speakers</a>
-      <a href="#" onclick="loadPage('panelists.html')">Panel Discussion</a>
-      <a href="#" onclick="loadPage('FAQ.html')">White Paper</a>
-      <a href="#" onclick="loadPage('organisers.html')">Organisers</a>
-      <div class="dropdown">
-        <button class="dropbtn">All years</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="loadPage('2024.html')">2024</a>
-          <a href="#" onclick="loadPage('2023.html')">2023</a>
-        </div>
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <a href="#" onclick="loadPage('welcome.html')">Welcome</a>
+    <a href="#" onclick="loadPage('callforposters.html')">Call for posters</a>
+    <a href="#" onclick="loadPage('program.html')">Program</a>
+    <a href="#" onclick="loadPage('importantdates.html')">Important Dates</a>
+    <a href="#" onclick="loadPage('speakers.html')">Speakers</a>
+    <a href="#" onclick="loadPage('panelists.html')">Panel Discussion</a>
+    <a href="#" onclick="loadPage('FAQ.html')">White Paper</a>
+    <a href="#" onclick="loadPage('organisers.html')">Organisers</a>
+    <div class="dropdown">
+      <button class="dropbtn">All years</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="loadPage('2025.html')">2025</a>
+        <a href="#" onclick="loadPage('2024.html')">2024</a>
+        <a href="#" onclick="loadPage('2023.html')">2023</a>
       </div>
-    </nav>
-
-    <!-- Mobile Dropdown Navigation -->
-    <div class="mobile-nav">
-      <select onchange="onMobileNavChange(this)">
-        <option value="welcome.html">Welcome</option>
-        <option value="callforposters.html">Call for posters</option>
-        <option value="program.html">Program</option>
-        <option value="importantdates.html">Important Dates</option>
-        <option value="speakers.html">Speakers</option>
-        <option value="panelists.html">Panel Discussion</option>
-        <option value="FAQ.html"> White Paper </option>
-        <option value="organisers.html">Organisers</option>
-        <optgroup label="All years">
-          <option value="2025.html">2025</option>
-          <option value="2024.html">2024</option>
-          <option value="2023.html">2023</option>
-        </optgroup>
-      </select>
     </div>
-  </div>
+  </nav>
 
-  <div class="content">
-    <iframe id="content-frame" src="welcome.html"></iframe>
+  <!-- Mobile Dropdown Navigation -->
+  <div class="mobile-nav">
+    <select onchange="onMobileNavChange(this)">
+      <option value="welcome.html">Welcome</option>
+      <option value="callforposters.html">Call for posters</option>
+      <option value="program.html">Program</option>
+      <option value="importantdates.html">Important Dates</option>
+      <option value="speakers.html">Speakers</option>
+      <option value="panelists.html">Panel Discussion</option>
+      <option value="FAQ.html"> White Paper </option>
+      <option value="organisers.html">Organisers</option>
+      <optgroup label="All years">
+        <option value="2025.html">2025</option>
+        <option value="2024.html">2024</option>
+        <option value="2023.html">2023</option>
+      </optgroup>
+    </select>
   </div>
+</div>
+
+<div class="content">
+  <iframe id="content-frame" src="welcome.html"></iframe>
+</div>
 
 </body>
 </html>
