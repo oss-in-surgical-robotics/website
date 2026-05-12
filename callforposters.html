@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Call for Posters</title>
-
+  <title>Call for Posters - HSMR 2026</title>
   <!-- Add Open Sans font -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -17,7 +15,6 @@
       color: #333;
       line-height: 1.6;
     }
-
     h1 {
       font-size: 28px;
       color: #222;
@@ -27,19 +24,16 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     p {
       font-size: 18px;
       max-width: 1000px;
       margin: 0 auto 20px auto;
       text-align: center;
     }
-
     .button-container {
       text-align: center;
       margin-top: 30px;
     }
-
     .button-link {
       background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
       color: white;
@@ -51,16 +45,14 @@
       display: inline-block;
       margin: 10px;
     }
-
     .button-link:hover {
       background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
       transform: translateY(-2px);
     }
-
     .guidelines-box {
       max-width: 800px;
       margin: 50px auto;
-      padding: 20px;
+      padding: 20px 30px;
       background-color: white;
       border-left: 6px solid #6a11cb;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -68,16 +60,33 @@
       font-size: 18px;
       line-height: 1.6;
     }
-
     .guidelines-box h2, .guidelines-box h1 {
       text-align: center;
       margin-top: 0;
     }
-
-    .guidelines-box ul {
-      padding-left: 20px;
+    .guidelines-box h3 {
+      margin-top: 30px;
+      color: #6a11cb;
     }
-
+    .guidelines-box p {
+      text-align: left;
+      max-width: none;
+    }
+    .guidelines-box ol, .guidelines-box ul {
+      padding-left: 22px;
+    }
+    .guidelines-box ol li, .guidelines-box ul li {
+      margin-bottom: 8px;
+    }
+    .conference-details {
+      background-color: #f8f9fa;
+      padding: 15px 20px;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+    .conference-details p {
+      margin: 4px 0;
+    }
     a {
       color: #2575fc;
     }
@@ -85,58 +94,71 @@
 </head>
 <body>
 
-<h1>Call for Posters</h1>
+  <h1>Call for Posters</h1>
+  <p>From Code to Care &middot; HSMR 2026 &middot; Friday 26th June 2026, London, UK</p>
 
-<p>Abstract submission deadline: June 12th 2025</p>
+  <div class="button-container">
+    <a class="button-link" href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2026/tree/main/posters/templates" target="_blank" rel="noopener noreferrer">Abstract Templates</a>
+    <a class="button-link" href="https://www.overleaf.com/read/tdshfrwxmggz#33669e" target="_blank" rel="noopener noreferrer">Overleaf Template</a>
+  </div>
 
-<div class="button-container">
-  <a class="button-link" href="https://openreview.net/group?id=hamlynsymposium.org/Hamlyn_Symposium/2025/Workshop/OSS_in_SurgTech" target="_blank">Poster Submission</a>
-</div>
+  <div class="guidelines-box">
 
-<div class="guidelines-box">
+    <h1>Poster Submission Guidelines</h1>
 
-  <h1>Poster Submission Guidelines</h1>
+    <p>📢 We invite attendees to share their work through poster presentations at the <strong>From Code to Care: Challenges, Success Stories, and the Future Directions of Open-Source Development in Medical Robotics</strong> workshop. Your innovative contributions are warmly welcomed.</p>
 
-  <p>📢 Calling all attendees to share their insights and contributions through poster presentations focusing on <strong>Healing Through Collaboration: Open-Source Software in Surgical, Biomedical and AI Technologies</strong> workshop. Your innovative work is welcomed and encouraged.</p>
+    <h3>📝 Abstract Templates</h3>
+    <p>Word and LaTeX templates are available in the <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2026/tree/main/posters/templates" target="_blank" rel="noopener noreferrer">posters/templates</a> folder of our repository. You can also make use of our <a href="https://www.overleaf.com/read/tdshfrwxmggz#33669e" target="_blank" rel="noopener noreferrer">Overleaf project</a> (read access for anyone with the link).</p>
 
-  <p>We are particularly looking forward to posters, followed by conference proceedings in open-review, related but not limited to the following topics:</p>
+    <h3>🧾 Zenodo DOIs for accepted posters and two-page abstracts</h3>
+    <p>For authors who wish to make their work publicly available, we kindly ask that you upload your posters to Zenodo. This provides a formal citation option for your work, such as a DOI.</p>
+    <ol>
+      <li>Create a new Zenodo submission at <a href="https://zenodo.org/uploads/new" target="_blank" rel="noopener noreferrer">https://zenodo.org/uploads/new</a>.</li>
+      <li>Drag and drop your PDF poster.</li>
+      <li>If you already have a DOI for this upload, add it. Otherwise, select <em>No</em> and Zenodo will automatically create one for your poster.</li>
+      <li>Select resource type <strong>“Poster”</strong> and add the title, creators (names, ORCID, affiliation, role), and a description (the abstract of your poster).</li>
+      <li>Select a licence for your poster.</li>
+      <li>Add the conference details:
+        <div class="conference-details">
+          <p><strong>Title:</strong> The 18th Hamlyn Symposium on Medical Robotics</p>
+          <p><strong>Acronym:</strong> HSMR26</p>
+          <p><strong>Place:</strong> Royal Geographical Society</p>
+          <p><strong>Dates:</strong> 26th June 2026</p>
+          <p><strong>Website:</strong> <a href="https://www.hamlynsymposium.org/events/from-code-to-care-challenges-success-stories-and-the-future-directions-of-open-source-development-in-medical-robotics/" target="_blank" rel="noopener noreferrer">Hamlyn Symposium event page</a></p>
+          <p><strong>Session:</strong> From Code to Care: Challenges, Success Stories, and the Future Directions of Open-Source development in Medical Robotics</p>
+        </div>
+      </li>
+      <li>Feel free to fill in any additional Zenodo fields that apply to your submission: recommended information, funding, alternative identifiers, related work, references, publishing information, and domain-specific fields.</li>
+      <li>Please share your Zenodo DOI in the email thread once submitted.</li>
+      <li>Many thanks for your submission &mdash; please don’t hesitate to reach out to Miguel Xochicale (<a href="mailto:m.xochicale@ucl.ac.uk">m.xochicale@ucl.ac.uk</a>) if there is anything we can help with.</li>
+    </ol>
 
-  <p>💻 Open-source software/hardware libraries and frameworks for surgical and biomedical sciences</p>
-  <p>🤖 Open-source AI solutions for surgical and biomedical sciences</p>
-  <p>📝 Open-source software/hardware regulations in clinical sciences</p>
-  <p>🧑‍🔧 Maintaining and supporting surgical and biomedical software/hardware</p>
-  <p>🧑‍🔬 Incorporating open-source software/hardware in clinical trials</p>
-  <p>💰 Open-source software/hardware solutions for low to middle-income countries</p>
-  <p>🧪 Case studies showcasing novel applications and combinations of existing open-source software and hardware</p>
-  <p>📄 Project summaries, 🛠️ methodological approaches, 🔍 research findings, and 🌐 initiatives related to Open-Source Software for Surgical Technologies</p>
+    <h3>📐 Poster Size and Allocation</h3>
+    <p>We have an allocation of 8 poster boards located in the Marquee. Each board is double sided, allowing for a maximum of 16 A0 portrait posters. The physical poster must comply with the <strong>A0 portrait standard</strong>:</p>
+    <ul>
+      <li>Maximum height: 118.9&nbsp;cm (46.8&nbsp;inches)</li>
+      <li>Maximum width: 84.1&nbsp;cm (33.1&nbsp;inches)</li>
+    </ul>
+    <p>A1 or A2 size is also acceptable if that is a more portable option for you. The poster should <strong>not</strong> be laminated. Mounting materials will be provided at the poster board onsite.</p>
+    <p>All poster boards will be labelled with the workshop name and a poster number. If you are a presenter, please come to the registration desk at 08:30 and one of our volunteers will direct you to the correct board to set up your poster.</p>
 
-  <p>🏆 We are excited to announce that we will be recognising excellence with awards for the best poster and runner-up submissions.</p>
+    <h3>🎤 Poster Spotlights</h3>
+    <p>We have a Spotlight session for posters at <strong>12:00</strong>. Please prepare a one-minute presentation of your poster in any format that suits you &mdash; this could be simply projecting your poster, using slides with videos or demos, or even bringing portable hardware if possible. Due to a tight schedule, presentations must be strictly limited to one minute. You’ll have further time during lunch and at the poster marquee to discuss your work in more detail.</p>
 
-  <p>📅 <strong>Key dates:</strong><br>
-    Abstract submission deadline: 12th June 2025<br>
-    Notification of acceptance: 13th June 2025<br>
-    Poster submission deadline: 23rd June 2025<br>
-    Workshop: 27th June 2025</p>
+    <h3>👥 Program Chair and Contact</h3>
+    <p>Dr <a href="https://mxochicale.github.io/" target="_blank" rel="noopener noreferrer">Miguel Xochicale</a>, University College London.</p>
+    <p>Please don’t hesitate to reach out to Miguel at <a href="mailto:m.xochicale@ucl.ac.uk">m.xochicale@ucl.ac.uk</a> if there is anything we can help with.</p>
 
-  <p>📤 <strong>Abstract Submission:</strong><br>
-    Please use the following templates to prepare your abstract and OpenReview submission. We encourage open-source participation using open-review; however, we also want to ensure that authors have the option for private submissions by sending abstracts to <a href="mailto:m.xochicale@ucl.ac.uk">m.xochicale@ucl.ac.uk</a>, <a href="mailto:s.chopra@ucl.ac.uk">s.chopra@ucl.ac.uk</a>.</p>
+    <h3>🔗 Useful Links</h3>
+    <p>
+      Workshop page: <a href="https://www.hamlynsymposium.org/events/from-code-to-care-challenges-success-stories-and-the-future-directions-of-open-source-development-in-medical-robotics/" target="_blank" rel="noopener noreferrer">Hamlyn Symposium 2026 event page</a><br>
+      Repository: <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2026" target="_blank" rel="noopener noreferrer">workshop-hamlyn2026</a><br>
+      Discussions: <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2026/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a><br>
+      Community Discord: <a href="https://discord.gg/P6wB44Ftft" target="_blank" rel="noopener noreferrer">discord.gg/P6wB44Ftft</a>
+    </p>
 
-  <p>📝 <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2025/tree/main/posters/templates" target="_blank">See Word and LaTeX templates here</a></p>
-  <p>🖋️ You are also welcome to use our Overleaf templates, which can be accessed by anyone using <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2025/tree/main/posters/templates" target="_blank">this link</a>.</p>
-
-  <p>📌 <strong>Poster Submission:</strong><br>
-    We will provide further details after your abstract is accepted. Posters can either be submitted to Zenodo for open access or sent privately by email to <a href="mailto:m.xochicale@ucl.ac.uk">m.xochicale@ucl.ac.uk</a>, <a href="mailto:s.chopra@ucl.ac.uk">s.chopra@ucl.ac.uk</a>.</p>
-
-  <p>🔗 <strong>Workshop link:</strong><br>
-    <a href="https://www.hamlynsymposium.org/events/healing-through-collaboration-open-source-software-in-surgical-biomedical-and-ai-technologies/" target="_blank">https://www.hamlynsymposium.org/events/healing-through-collaboration-open-source-software-in-surgical-biomedical-and-ai-technologies/</a></p>
-
-  <p>🔗 <strong>Submission link:</strong><br>
-    <a href="https://openreview.net/group?id=hamlynsymposium.org/Hamlyn_Symposium/2025/Workshop/OSS_in_SurgTech" target="_blank">https://openreview.net/group?id=hamlynsymposium.org/Hamlyn_Symposium/2025/Workshop/OSS_in_SurgTech</a></p>
-
-  <p>❓ <strong>Questions?</strong><br>
-    If you have any questions, please contact our poster chairs by emailing <a href="mailto:m.xochicale@ucl.ac.uk">m.xochicale@ucl.ac.uk</a>, <a href="mailto:s.chopra@ucl.ac.uk">s.chopra@ucl.ac.uk</a>.</p>
-
-</div>
+  </div>
 
 </body>
 </html>
