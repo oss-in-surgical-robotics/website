@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organisers</title>
+  <title>Organisers - HSMR 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
@@ -25,6 +25,7 @@
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
+      justify-content: center;
     }
     .organiser-card {
       width: 300px;
@@ -36,103 +37,109 @@
       flex-direction: column;
       transition: transform 0.2s ease;
     }
-    
     .organiser-card:hover {
       transform: translateY(-4px);
     }
-    
     .organiser-image {
       width: 100%;
       aspect-ratio: 4 / 3; /* Keeps image rectangular, not squished */
       background-size: cover;
       background-position: center;
     }
-    
     .organiser-content {
       padding: 16px;
     }
-    
     .organiser-name {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 4px;
     }
-    
+    .organiser-role {
+      font-size: 13px;
+      color: #6a11cb;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
     .organiser-affiliation {
       font-style: italic;
       color: #555;
       margin-bottom: 10px;
     }
-    
     .organiser-bio {
       font-size: 14px;
       color: #333;
     }
-
-
   </style>
 </head>
 <body>
 
-<h1>Organising Committee</h1>
+  <h1>Organising Committee</h1>
 
-<div class="organiser-grid">
-  <div class="organiser-card">
-        <div class="organiser-image" style="background-image: url('figures/miguel-xochicale.jpeg');"></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Miguel Xochicale</div>
-      <div class="organiser-affiliation">University College London</div>
-      <div class="organiser-bio">Miguel is a Senior Research Engineer at University College London, where he leads pioneering work in data-centric AI tools for medical imaging, MedTech, SurgTech, biomechanics, and clinical translation, all using open-source software. His work focuses on driving innovation and delivering impact in several critical areas: Real-time AI for surgery, eye movement disorders, and echocardiography, Sensor fusion data integrating wearable trackers with medical imaging, Generative models for fetal imaging, and Child-robot interaction in low-resource countries. By harnessing these cutting-edge technologies, Miguel is dedicated to transforming healthcare through AI and making a lasting impact on patient care and medical research.</div>
+  <div class="organiser-grid">
+
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/miguel_xochicale.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Miguel Xochicale</div>
+        <div class="organiser-role">Lead Organiser</div>
+        <div class="organiser-affiliation">University College London</div>
+        <div class="organiser-bio">Miguel is a Senior Research Engineer at University College London, where he leads pioneering work in data-centric AI tools for medical imaging, MedTech, SurgTech, biomechanics, and clinical translation, all using open-source software. His work focuses on driving innovation and delivering impact in several critical areas: Real-time AI for surgery, eye movement disorders, and echocardiography, Sensor fusion data integrating wearable trackers with medical imaging, Generative models for fetal imaging, and Child-robot interaction in low-resource countries. By harnessing these cutting-edge technologies, Miguel is dedicated to transforming healthcare through AI and making a lasting impact on patient care and medical research.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="organiser-card">
-    <div class="organiser-image" style="background-image: url('figures/reza_haqshenas.jpeg');" ></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Reza Haqshenas</div>
-      <div class="organiser-affiliation">University College London</div>
-      <div class="organiser-bio">Reza is Assistant Professor in Therapeutic Ultrasound, UCL Mechanical Engineering. His research interests lie in the interface between physical acoustics and biological physics, with applications to pharmaceutical, health and biomedical problems. Reza is interested in leveraging high-performance computing in therapeutic ultrasound and developing efficient numerical methods for solving problems in physical acoustics. He is a lead developer of OptimUS, an open-source, fast full-wave acoustic solver for treatment planning for focused ultrasound therapy.</div>
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/mariana_bernardes.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Mariana Bernardes</div>
+        <div class="organiser-role">Co-Organiser</div>
+        <div class="organiser-affiliation">Brigham and Women’s Hospital and Harvard Medical School</div>
+        <div class="organiser-bio"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="organiser-card">
-    <div class="organiser-image" style="background-image: url('figures/ruaridh_gollifer.jpeg');" ></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Ruaridh Gollifer</div>
-      <div class="organiser-affiliation">University College London</div>
-      <div class="organiser-bio">Ruaridh is an Research Software Engineer in Advanced Research Computing Centre (ARC) at UCL. He has experience in medical imaging research and has worked across different software projects in healthcare. He is interested in infrastructure-as-code, especially for open-source solutions and is passionate about collaborating with researchers.</div>
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/laura_connolly.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Laura Connolly</div>
+        <div class="organiser-role">Co-Organiser</div>
+        <div class="organiser-affiliation">The Johns Hopkins University</div>
+        <div class="organiser-bio">Laura’s research focuses on open-source software for image-guided robotics and robot-assisted cancer surgery.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="organiser-card">
-    <div class="organiser-image" style="background-image: url('figures/saransh-chopra.jpeg');"></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Saransh Chopra</div>
-      <div class="organiser-affiliation">University College London</div>
-      <div class="organiser-bio">Saransh is an assistant research software engineer at UCL’s Advanced Research Computing Centre, where he works on GPU and automatic differentiation support for cosmological simulations. Besides technical work, he is also involved with teaching and advocating open-source in academia. Before joining UCL, Saransh developed software for high-energy physics analysis at the European Organisation for Nuclear Research (CERN) under the Princeton Institute for Computational Science and Engineering (PICSciE). Moreover, in daylight, he works on his academic and professional commitments, and by night, he develops and maintains several open-source scientific software, which he believes are the key to collaborative and reproducible research.</div>
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/ruaridh_gollifer.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Ruaridh Gollifer</div>
+        <div class="organiser-role">Co-Organiser</div>
+        <div class="organiser-affiliation">University College London</div>
+        <div class="organiser-bio">Ruaridh is a Research Software Engineer in the Advanced Research Computing Centre (ARC) at UCL. He has experience in medical imaging research and has worked across different software projects in healthcare. He is interested in infrastructure-as-code, especially for open-source solutions, and is passionate about collaborating with researchers.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="organiser-card">
-    <div class="organiser-image" style="background-image: url('figures/laura-connolly.jpeg');"></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Laura Connolly</div>
-      <div class="organiser-affiliation">Queen’s University, Canada</div>
-      <div class="organiser-bio">Laura is a Ph.D. candidate in Electrical Engineering at Queen's University in Canada. Her research focused on open-source software for image-guided robotics and robot-assisted cancer surgery.</div>
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/junichi_tokuda.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Junichi Tokuda</div>
+        <div class="organiser-role">Co-Organiser</div>
+        <div class="organiser-affiliation">Brigham and Women’s Hospital and Harvard Medical School</div>
+        <div class="organiser-bio">Junichi is a research scientist specializing in biomedical engineering at Brigham and Women’s Hospital in Boston, MA, USA. His research focuses on image-guided and robot-assisted interventions, particularly MRI-guided biopsy and ablation. He has extensive experience in developing and clinically translating open-source software tools to support these procedures. He is also an Associate Professor of Radiology at Harvard Medical School.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="organiser-card">
-    <div class="organiser-image" style="background-image: url('figures/junichi_tokuda.jpeg');"></div>
-    <div class="organiser-content">
-      <div class="organiser-name">Junichi Tokuda</div>
-      <div class="organiser-affiliation">Brigham and Women’s Hospital and Harvard Medical School</div>
-      <div class="organiser-bio">Junichi is a research scientist specializing in biomedical engineering at Brigham and Women’s Hospital in Boston, MA, USA. His research focuses on image-guided and robot-assisted interventions, particularly MRI-guided biopsy and ablation. He has extensive experience in developing and clinically translating open-source software tools to support these procedures. He is also an Associate Professor of Radiology at Harvard Medical School.
-
- </div>
+    <div class="organiser-card">
+      <div class="organiser-image" style="background-image: url('figures/reza_haqshenas.jpeg');"></div>
+      <div class="organiser-content">
+        <div class="organiser-name">Reza Haqshenas</div>
+        <div class="organiser-role">Co-Organiser</div>
+        <div class="organiser-affiliation">University College London</div>
+        <div class="organiser-bio">Reza is Assistant Professor in Therapeutic Ultrasound, UCL Mechanical Engineering. His research interests lie in the interface between physical acoustics and biological physics, with applications to pharmaceutical, health and biomedical problems. Reza is interested in leveraging high-performance computing in therapeutic ultrasound and developing efficient numerical methods for solving problems in physical acoustics. He is a lead developer of OptimUS, an open-source, fast full-wave acoustic solver for treatment planning for focused ultrasound therapy.</div>
+      </div>
     </div>
+
   </div>
-</div>
 
 </body>
 </html>
