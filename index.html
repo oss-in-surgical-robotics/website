@@ -4,52 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>HSMR 2026 Workshop: From Code to Care</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       max-width: 100%;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
       font-family: 'Open Sans', sans-serif;
       scroll-behavior: smooth;
+      background: linear-gradient(180deg, #f5f0fb 0%, #eef3fc 50%, #f5f0fb 100%);
+      min-height: 100vh;
     }
+
+    /* Animated background canvas — fixed behind everything */
+    #orb-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Top bar — translucent so orbs show through */
     .top-bar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      background: rgba(106, 17, 203, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: white;
       z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(106, 17, 203, 0.15);
     }
     header {
-      padding: 10px 20px;
+      padding: 12px 20px 6px;
       text-align: center;
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
+    header .subtitle {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.85;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+
     nav.desktop-nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       background: transparent;
       align-items: center;
+      padding-bottom: 4px;
     }
     nav.desktop-nav a {
       color: #f2f2f2;
       text-align: center;
-      padding: 14px 16px;
+      padding: 12px 16px;
       text-decoration: none;
-      font-size: 17px;
-      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px;
+      transition: background-color 0.25s, color 0.25s;
+      border-radius: 6px;
+      margin: 0 2px;
     }
     nav.desktop-nav a:hover,
     .dropdown:hover .dropbtn {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.18);
       color: #ffffff;
-      border-radius: 5px;
     }
     .dropdown {
       position: relative;
@@ -58,52 +88,74 @@
     .dropbtn {
       background: transparent;
       color: #f2f2f2;
-      padding: 14px 16px;
-      font-size: 17px;
+      padding: 12px 16px;
+      font-size: 16px;
       border: none;
       cursor: pointer;
       font-family: 'Open Sans', sans-serif;
+      border-radius: 6px;
     }
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #6a11cb;
+      background-color: rgba(106, 17, 203, 0.96);
+      backdrop-filter: blur(10px);
       min-width: 160px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
       z-index: 1001;
+      border-radius: 6px;
+      overflow: hidden;
     }
     .dropdown-content a {
       color: white;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-      font-size: 16px;
+      font-size: 15px;
     }
     .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.18);
     }
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     .mobile-nav {
       display: none;
       text-align: center;
-      padding: 10px;
-      background-color: #6a11cb;
+      padding: 8px 10px 12px;
+      background-color: transparent;
     }
     .mobile-nav select {
       font-size: 16px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 6px;
       border: none;
       width: 90%;
       max-width: 300px;
     }
+
+    /* Content area sits above canvas with translucent card */
     .content {
-      margin-top: 150px;
-      padding: 0;
+      position: relative;
+      z-index: 1;
+      margin-top: 145px;
+      padding: 24px 20px 40px;
       width: 100%;
+      box-sizing: border-box;
       overflow-x: hidden;
+    }
+    .content-card {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(106, 17, 203, 0.10),
+                  0 2px 8px rgba(37, 117, 252, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      overflow: hidden;
     }
     iframe {
       width: 100%;
@@ -111,7 +163,10 @@
       height: 80vh;
       border: none;
       overflow-x: hidden;
+      background: transparent;
+      display: block;
     }
+
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
@@ -120,16 +175,17 @@
         display: block;
       }
       header {
-        font-size: 22px;
+        font-size: 20px;
+        padding: 10px 16px 4px;
+      }
+      header .subtitle {
+        font-size: 12px;
       }
       .content {
-        margin-top: 200px;
-        width: 100%;
-        overflow-x: hidden;
+        margin-top: 185px;
+        padding: 16px 12px 30px;
       }
       iframe {
-        width: 100%;
-        max-width: 100%;
         height: 75vh;
       }
     }
@@ -146,10 +202,14 @@
 </head>
 <body>
 
-<div class="top-bar">
-  <header>HSMR 2026 Workshop: From Code to Care</header>
+<canvas id="orb-canvas"></canvas>
 
-  <!-- Desktop Navigation -->
+<div class="top-bar">
+  <header>
+    HSMR 2026 Workshop: From Code to Care
+    <span class="subtitle">Challenges, Success Stories, and the Future Directions of Open-Source Development in Medical Robotics</span>
+  </header>
+
   <nav class="desktop-nav">
     <a href="#" onclick="loadPage('welcome.html')">Welcome</a>
     <a href="#" onclick="loadPage('callforposters.html')">Call for posters</a>
@@ -159,7 +219,7 @@
     <a href="#" onclick="loadPage('FAQ.html')">White Paper</a>
     <a href="#" onclick="loadPage('organisers.html')">Organisers</a>
     <div class="dropdown">
-      <button class="dropbtn">All years</button>
+      <button class="dropbtn">All years &#9662;</button>
       <div class="dropdown-content">
         <a href="#" onclick="loadPage('2025.html')">2025</a>
         <a href="#" onclick="loadPage('2024.html')">2024</a>
@@ -168,7 +228,6 @@
     </div>
   </nav>
 
-  <!-- Mobile Dropdown Navigation -->
   <div class="mobile-nav">
     <select onchange="onMobileNavChange(this)">
       <option value="welcome.html">Welcome</option>
@@ -176,7 +235,7 @@
       <option value="program.html">Program</option>
       <option value="importantdates.html">Important Dates</option>
       <option value="speakers.html">Speakers and Panellists</option>
-      <option value="FAQ.html"> White Paper </option>
+      <option value="FAQ.html">White Paper</option>
       <option value="organisers.html">Organisers</option>
       <optgroup label="All years">
         <option value="2025.html">2025</option>
@@ -188,8 +247,80 @@
 </div>
 
 <div class="content">
-  <iframe id="content-frame" src="welcome.html"></iframe>
+  <div class="content-card">
+    <iframe id="content-frame" src="welcome.html"></iframe>
+  </div>
 </div>
+
+<script>
+  // Floating orb background — subtle, drifting blobs in Hamlyn palette
+  (function() {
+    const canvas = document.getElementById('orb-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Respect user motion preferences — render once and freeze
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Palette matches site gradient: deep purple, mid violet, bright blue
+    const palette = [
+      'rgba(106, 17, 203, 0.18)',   // purple
+      'rgba(138, 67, 217, 0.16)',   // violet
+      'rgba(37, 117, 252, 0.18)',   // blue
+      'rgba(106, 152, 240, 0.14)',  // soft blue
+      'rgba(170, 130, 230, 0.14)',  // lavender
+    ];
+
+    const orbCount = 7;
+    const orbs = [];
+    for (let i = 0; i < orbCount; i++) {
+      orbs.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: 180 + Math.random() * 220,   // large, soft
+        dx: (Math.random() - 0.5) * 0.25,
+        dy: (Math.random() - 0.5) * 0.25,
+        color: palette[i % palette.length],
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      const t = performance.now() * 0.0005;
+
+      orbs.forEach((orb) => {
+        // Drift slowly + gentle sinusoidal wobble so they breathe
+        orb.x += orb.dx + Math.sin(t + orb.phase) * 0.15;
+        orb.y += orb.dy + Math.cos(t + orb.phase) * 0.15;
+
+        // Wrap softly so they re-enter from the other side
+        if (orb.x < -orb.r) orb.x = width + orb.r;
+        if (orb.x > width + orb.r) orb.x = -orb.r;
+        if (orb.y < -orb.r) orb.y = height + orb.r;
+        if (orb.y > height + orb.r) orb.y = -orb.r;
+
+        const grad = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r);
+        grad.addColorStop(0, orb.color);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+</script>
 
 </body>
 </html>
