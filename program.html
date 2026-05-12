@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Program</title>
+  <title>HSMR 2026 Workshop Program</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 20px;
       font-family: 'Open Sans', sans-serif;
-      background-color: #F8F9FA;
+      background-color: #f8f9fa;
       color: #333;
       line-height: 1.6;
     }
@@ -18,7 +18,16 @@
       font-size: 28px;
       color: #222;
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .link-bar {
+      text-align: center;
       margin-bottom: 20px;
+    }
+    .link-bar a {
+      color: #2575fc;
+      text-decoration: none;
+      font-weight: bold;
     }
     table {
       width: 100%;
@@ -34,23 +43,23 @@
       text-align: left;
     }
     th {
-      background-color: #6A11CB;
-      background-image: linear-gradient(90deg, #6A11CB 0%, #2575FC 100%);
+      background-color: #6a11cb;
+      background-image: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
       color: white;
     }
     tr:nth-child(even) {
-      background-color: #F2F2F2;
+      background-color: #f2f2f2;
     }
     td:first-child, th:first-child {
-      width: 160px; /* Widen the time column */
+      width: 160px;
     }
     .session-header {
-      background-color: #E9ECEF; /* Light gray for breaks */
+      background-color: #e9ecef;
       font-weight: bold;
       text-align: center;
     }
     a {
-      color: #2575FC;
+      color: #2575fc;
       text-decoration: none;
     }
     a:hover {
@@ -59,62 +68,55 @@
   </style>
 </head>
 <body>
-<h1>Workshop Program</h1>
+
+<h1>HSMR 2026 Workshop Program</h1>
+<p style="text-align: center; margin-top: 0;">From Code to Care &middot; Friday 26th June 2026 &middot; London, UK</p>
+<div class="link-bar">
+  <a href="https://github.com/oss-for-surg-med-ai-tech/workshop-hamlyn2026" target="_blank" rel="noopener noreferrer">
+    Link to full website
+  </a>
+</div>
+
 <table>
   <thead>
     <tr>
       <th>Time</th>
       <th>Title</th>
-      <th>Speaker Name & Organisation</th>
+      <th>Speaker Name &amp; Organisation</th>
     </tr>
   </thead>
   <tbody>
     <tr class="session-header">
       <td>08:30 - 09:00</td>
-      <td colspan="2">Registration & Coffee</td>
+      <td colspan="2">Registration &amp; Coffee</td>
     </tr>
     <tr>
-      <td>09:00 - 09:10</td>
-      <td>Welcome</td>
-      <td>Organising committee</td>
-    </tr>
-    <tr>
-      <td>09:10 - 09:50</td>
-      <td>Addressing The Translation of Medical AI From Research to Clinical Practice</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#stephen-aylward')">Stephen Aylward, NVIDIA</a></td>
+      <td>09:00 - 09:50</td>
+      <td>The dVRK experience: Twenty years of open source hardware and software for medical robotics research</td>
+      <td>Peter Kazanzides, The Johns Hopkins University</td>
     </tr>
     <tr>
       <td>09:50 - 10:30</td>
-      <td>From Prototype to Product: Accelerating Clinical Translation with High-Quality Open-Source Software and Engineering Practices</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#andinet-enquobahrie')">Andinet Enquobahrie, Medical Computing Kitware, Inc.</a></td>
+      <td>An Open-Source Platform to Fight Disease</td>
+      <td>Aaron Timm, CEO Openwater</td>
     </tr>
     <tr class="session-header">
       <td>10:30 - 11:00</td>
       <td colspan="2">Coffee Break</td>
     </tr>
     <tr>
-      <td>11:00 - 11:20</td>
-      <td>Challenges of open-source in biomedical engineering</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#diana-oliveira')">Diana Oliveira, University College London</a></td>
+      <td>11:00 - 11:30</td>
+      <td>Ecosystem Building for an Open Source Implantable Device Platform</td>
+      <td>Chris Rexroth, COSMIIC</td>
     </tr>
     <tr>
-      <td>11:20 - 11:40</td>
-      <td>Building a Community-First KUKA LBR Driver: Architecture, Challenges, and Roadmap</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#martin-huber')">Martin Huber, King’s College London</a></td>
+      <td>11:30 - 12:00</td>
+      <td>Scalable Policy Training Environment for Robotic Ultrasound: Methods and Challenges</td>
+      <td>Ao Yunke, ETH Zürich</td>
     </tr>
     <tr>
-      <td>11:40 - 12:00</td>
-      <td>From scanner hardware to imaging software: Redefining MRI Accessibility through Open Source Solutions</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#christoph-kolbitsch')">Christoph Kolbitsch, Physikalisch-Technische Bundesanstalt (PTB)</a></td>
-    </tr>
-    <tr>
-      <td>12:00 - 12:20</td>
-      <td>A Deep Dive into Artificial Intelligence for Endoscopy</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#rawen-kader')">Rawen Kader, University College London</a></td>
-    </tr>
-    <tr>
-      <td>12:20 - 12:30</td>
-      <td>Spotlights for Posters</td>
+      <td>12:00 - 12:30</td>
+      <td>Spotlights for Sponsor and Posters</td>
       <td>-</td>
     </tr>
     <tr class="session-header">
@@ -122,68 +124,40 @@
       <td colspan="2">Lunch Break</td>
     </tr>
     <tr>
-      <td>13:30 - 14:15</td>
+      <td>13:30 - 14:30</td>
       <td><strong>Panel Discussion</strong></td>
-      <td>
-        <a href="#" onclick="parent.loadPage('speakers.html#ahmed-alhindawi')">Ahmed Al-Hindawi (UCL)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#jennifer-jiangkell')">Jennifer Jiang-Kell (Healthchain)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#thomas-wood')">Thomas Wood (Fast Data Science)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#philip-cosgriff')">Philip Cosgriff (Consultant Clinical Scientist)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#zachary-baum')">Zachary Baum (Odin Visual)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#rachael-rodell')">Rachael Rodell (UCL)</a>,
-        <a href="#" onclick="parent.loadPage('speakers.html#shashank-sharma')">Shashank Sharma (Roboss Ltd)</a>
-      </td>
+      <td>Panellists to be confirmed closer to the event day</td>
     </tr>
     <tr>
-      <td>14:15 - 14:35</td>
-      <td>ARRUS an Open Source Framework for Software-defined Ultrasound</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#marcin-lewandowski')">Marcin Lewandowski, CEO of us4us Ltd</a></td>
-    </tr>
-    <tr>
-      <td>14:35 - 14:55</td>
-      <td>How Debian Med can help you, and vice versa</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#pierre-gruet')">Pierre Gruet, Debian</a></td>
-    </tr>
-    <tr>
-      <td>14:55 - 15:15</td>
-      <td>Eye2Gene with Open Source: Open Source in Ophthalmology - the Open Sight Initiative</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#william-woof')">William Woof, eye2gene</a></td>
+      <td>14:30 - 15:00</td>
+      <td>From Data Scarcity to Clinical Impact: Open-Source Ultrasound Spine Reconstruction for Scoliosis Monitoring in Senegal</td>
+      <td>Gabriella d’Albenzio, Queen’s University and Dr. Pape Mady Thiao, Université Cheikh Anta Diop de Dakar (UCAD)</td>
     </tr>
     <tr class="session-header">
-      <td>15:15 - 15:40</td>
+      <td>15:00 - 15:30</td>
       <td colspan="2">Coffee Break</td>
     </tr>
     <tr>
-      <td>15:40 - 16:00</td>
-      <td>Regulatory pathways for medical devices when using open source</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#gernot-kronreif')">Gernot Kronreif, ACMIC</a></td>
+      <td>15:30 - 16:10</td>
+      <td>From Research Tools to Shared Platforms: Building Accessible Ecosystems in Medical Robotics</td>
+      <td>Quentin Boehler, ETH Zürich</td>
     </tr>
     <tr>
-      <td>16:00 - 16:20</td>
-      <td>Why do we need AI for autonomous surgical robots?</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#mikael-brudfors')">Mikael Brudfors, NVIDIA</a></td>
+      <td>16:10 - 16:50</td>
+      <td>From Biosignals to Robots: An Open-Source Framework for Physiological Human Sensing in Healthcare</td>
+      <td>Diego Paez-Granados, ETH Zürich</td>
     </tr>
     <tr>
-      <td>16:20 - 16:25</td>
-      <td>Designing for Scalable, AI-Enabled Surgical Platforms</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#darren-porras')">Darren Porras, RTI</a></td>
-    </tr>
-    <tr>
-      <td>16:25 - 16:45</td>
-      <td>Global Harmonisation of AI-Enabled Software as a Medical Device (SaMD)</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#sandeep-reddy')">Sandeep Reddy, Queensland University of Technology</a></td>
-    </tr>
-    <tr>
-      <td>16:45 - 17:05</td>
-      <td>Regulatory Considerations for Medical AI in the U.S.</td>
-      <td><a href="#" onclick="parent.loadPage('speakers.html#eshan-dahal')">Eshan Dahal, Clinical and Regulatory Affairs Manager at SandboxAQ</a></td>
-    </tr>
-    <tr>
-      <td>17:05 - 17:20</td>
+      <td>16:50 - 17:00</td>
       <td>Poster awards and workshop closure</td>
       <td>-</td>
     </tr>
+    <tr class="session-header">
+      <td>17:00</td>
+      <td colspan="2">Workshop End</td>
+    </tr>
   </tbody>
 </table>
+
 </body>
 </html>
