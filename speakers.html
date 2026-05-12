@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Speakers</title>
+  <title>Speakers - HSMR 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,12 +11,10 @@
       margin: 20px;
       background-color: #f8f9fa;
     }
-
     h1 {
       text-align: center;
       margin-bottom: 30px;
     }
-
     .speaker {
       background: white;
       border-radius: 8px;
@@ -27,7 +25,6 @@
       display: flex;
       align-items: flex-start;
     }
-
     .speaker img {
       width: 120px;
       height: 120px;
@@ -36,177 +33,128 @@
       aspect-ratio: 1 / 1;
       margin-right: 30px;
     }
-
     .speaker h2 {
       margin: 0;
       font-size: 22px;
     }
-
     .speaker .company {
       margin: 4px 0 12px;
       font-style: italic;
       color: #666;
       font-size: 16px;
     }
-
     .speaker p {
       margin: 0;
       overflow-wrap: anywhere;
       word-break: break-word;
     }
+    .speaker .links {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    .speaker .links a {
+      color: #2575fc;
+      text-decoration: none;
+    }
+    .speaker .links a:hover {
+      text-decoration: underline;
+    }
     html {
-  overflow-x: hidden;
-  }
-  
-  @media screen and (max-width: 768px) {
-    table {
-      width: 100%;
-      max-width: none;
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
+      overflow-x: hidden;
     }
-  
-    th, td {
-      white-space: nowrap;
+    @media screen and (max-width: 768px) {
+      .speaker {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .speaker img {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
     }
-  }
   </style>
 </head>
 <body>
 
 <h1>Meet the Speakers</h1>
 
-<div id="stephen-aylward" class="speaker">
-  <img src="figures/stephen_aylward.jpeg" alt="Stephen Aylward">
+<div id="peter-kazanzides" class="speaker">
+  <img src="figures/peter_kazanzides.jpeg" alt="Peter Kazanzides">
   <div>
-    <h2>Stephen Aylward</h2>
-    <p class="company">NVIDIA</p>
-    <p>Dr. Stephen Aylward is a Strategic Applied Researcher for Medical Technologies at NVIDIA. With 25+ years in NIH, DARPA, and DoD-funded medical imaging research and open-source platform development (ITK, VTK, 3D Slicer, and MONAI), he is now combining open-source software with accelerated computing to explore and support next-gen, AI-enhanced, clinical products. His interests range from intelligent ultrasound systems to autonomous surgical robots. He is also a MICCAI Fellow, an adjunct professor in Computer Science at the University of North Carolina (UNC) at Chapel Hill, and chair of the MONAI Advisory Board. Previously, he was Senior Director of Strategic Initiatives at Kitware, and before founding Kitware’s office in North Carolina, he was a tenured professor in Radiology at UNC.</p>
+    <h2>Peter Kazanzides</h2>
+    <p class="company">The Johns Hopkins University</p>
+    <p></p>
+    <p class="links"><a href="https://engineering.jhu.edu/faculty/peter-kazanzides/" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
-<!-- Now using the same format for everyone else -->
-
-<div id="andinet-enquobahrie" class="speaker">
-  <img src="figures/andinet_enquobahrie.jpeg" alt="Andinet Enquobahrie">
+<div id="aaron-timm" class="speaker">
+  <img src="figures/aaron_timm.jpeg" alt="Aaron Timm">
   <div>
-    <h2>Andinet Enquobahrie</h2>
-    <p class="company">Medical Computing, Kitware Inc.</p>
-    <p>Andinet Enquobahrie is a Senior Director of Medical Computing at Kitware, a leader in open-source innovation. He has over two decades of experience in medical imaging, healthcare research, and the development of AI-driven technologies for image-guided surgical applications. His work spans image analysis, surgical data science, computer-aided diagnosis, and clinical decision support, with a strong emphasis on translating research into practical, real-world applications. At Kitware, he leads a team of engineers working on open-source solutions that advance medical computing, including algorithm development, visualization, and scalable AI integration. Dr. Enquobahrie’s research focuses on AI-driven medical imaging and data science, with projects involving quantitative imaging, multimodal data integration, and scalable machine learning solutions. He has contributed to widely used open-source platforms and frameworks, including the early development of the Image-Guided Surgery Toolkit (IGSTK). His work has been funded by the National Institutes of Health (NIH), ARPA-H, and other agencies, supporting innovations in medical AI. Dr. Enquobahrie holds a Ph.D. in Electrical and Computer Engineering from Cornell University and an MBA from North Carolina State University, with a focus on technology and innovation management. He is passionate about making AI more transparent, scalable, and clinically impactful through open-source collaboration and rigorous validation.</p>
+    <h2>Aaron Timm</h2>
+    <p class="company">CEO, Openwater</p>
+    <p></p>
+    <p class="links"><a href="https://www.openwater.health/teams/aaron-timm" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
-<div id="diana-oliveira" class="speaker">
-  <img src="figures/diana_oliveira.jpg" alt="Diana Oliveira">
+<div id="chris-rexroth" class="speaker">
+  <img src="figures/chris_rexroth.jpeg" alt="Chris Rexroth">
   <div>
-    <h2>Diana Oliveira</h2>
-    <p class="company">University College London</p>
-    <p>Diana Oliveira is a Research Fellow in Haemodynamic Modelling at University College London, specialising in computational modelling of the circulatory system. With a PhD in Biomedical Engineering from the University of Birmingham, her work integrates medical imaging and physics-based simulations to tackle clinically relevant challenges. Diana has collaborated with international clinical and industry partners to develop personalised models of cardiovascular function, including heart valves and haemodialysis devices. Her current research focuses on simulating blood flow and transport in the placenta, as well as MRI signals, advancing understanding of feto-placental development through interdisciplinary collaborations across engineering, imaging, and antenatal health.</p>
+    <h2>Chris Rexroth</h2>
+    <p class="company">COSMIIC</p>
+    <p></p>
+    <p class="links"><a href="https://www.linkedin.com/in/chris-rexroth/" target="_blank" rel="noopener">LinkedIn</a></p>
   </div>
 </div>
 
-<div id="martin-huber" class="speaker">
-  <img src="figures/martin_huber.jpeg" alt="Martin Huber">
+<div id="ao-yunke" class="speaker">
+  <img src="figures/ao_yunke.jpeg" alt="Ao Yunke">
   <div>
-    <h2>Martin Huber</h2>
-    <p class="company">King’s College London</p>
-    <p>Martin is a Research Assistant at King’s College London, working with Prof. Christos Bergeles and Prof. Tom Vercauteren on spatial intelligence for robotic surgery. Previously, he was a Robotics Software Engineer at Johnson & Johnson, contributing to the Monarch platform. He started his career at the German Cancer Research Center, focusing on generative modeling for CT scans in C++. With experience spanning academia and industry, Martin is particularly interested in open-source software’s role in medical innovation and surgical robotics.</p>
+    <h2>Ao Yunke</h2>
+    <p class="company">ETH Zürich</p>
+    <p></p>
+    <p class="links"><a href="https://las.inf.ethz.ch/people/yunke-ao" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
-<div id="christoph-kolbitsch" class="speaker">
-  <img src="figures/christoph_kolbitsch.jpeg" alt="Christoph Kolbitsch">
+<div id="gabriella-dalbenzio" class="speaker">
+  <img src="figures/gabriella_dalbenzio.jpeg" alt="Gabriella d’Albenzio">
   <div>
-    <h2>Christoph Kolbitsch</h2>
-    <p class="company">Physikalisch-Technische Bundesanstalt (PTB)</p>
-    <p>Christoph Kolbitsch completed his PhD at King’s College London, UK, in 2012, focusing on Advanced Techniques for Cardiovascular Magnetic Resonance Imaging in Cases of Irregular Motion. After his PhD, he worked as a postdoctoral research associate at King’s College London, specializing in motion correction for PET-MR applications. In 2015, he joined the Physikalisch-Technische Bundesanstalt (PTB) in Berlin, Germany. Since 2017, he is head of the “Quantitative MRI” research group at PTB. Dr. Kolbitsch has contributed to several open-source software packages for medical image reconstruction, including 
-      <a href="https://github.com/SyneRBI/SIRF" target="_blank" rel="noopener">https://github.com/SyneRBI/SIRF</a> and 
-      <a href="https://github.com/PTB-MR/mrpro" target="_blank" rel="noopener">https://github.com/PTB-MR/mrpro</a>. 
-      Currently, he serves as the project leader of the EU-funded A4IM initiative, which is focused on developing an open-source MRI scanner 
-      (<a href="https://www.a4im.ptb.de/home" target="_blank" rel="noopener">https://www.a4im.ptb.de/home</a>).
-    </p>
+    <h2>Gabriella d’Albenzio</h2>
+    <p class="company">Queen’s University</p>
+    <p></p>
+    <p class="links"><a href="https://www.queensu.ca/grad-postdoc/research/research-spotlights/dr-gabriella" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
-<div id="rawen-kader" class="speaker">
-  <img src="figures/rawen_kader.jpeg" alt="Rawen Kader">
+<div id="pape-mady-thiao" class="speaker">
+  <img src="figures/pape_mady_thiao.jpeg" alt="Pape Mady Thiao">
   <div>
-    <h2>Rawen Kader</h2>
-    <p class="company">University College London</p>
-    <p>Rawen is a gastroenterologist with a research interest on improving the quality of endoscopy using artificial intelligence (AI). I have developed several AI systems for endoscopy, such as Barrett’s neoplasia detection, colorectal polyp detection and diagnosis, and to automate the measurement of key performance indicators. I have also led randomised controlled trials evaluating these systems, which has led to several international awards. I actively contribute to AI guidelines in healthcare, serving on the European Society of Gastrointestinal Endoscopy (ESGE) AI Task Force, a member of the DECIDE-AI guidelines group, and an external stakeholder in the UK’s national healthcare assessment of polyp CADe systems.</p>
-  </div>
-</div>
-
-<div id="marcin-lewandowski" class="speaker">
-  <img src="figures/marcin_lewandowski.jpeg" alt="Marcin Lewandowski">
-  <div>
-    <h2>Marcin Lewandowski</h2>
-    <p class="company">CEO of us4us Ltd</p>
-    <p>Since receiving a master’s degree in physics followed by a PhD in Electronic Engineering (2009), Marcin Lewandowski has headed many R&D projects, product designs, and medical devices developments. He has authored numerous publications in scientific journals on the medical and industrial applications of ultrasound. Over the course of 30+ years working in ultrasound, electronics and software development, Marcin has strived to apply his research expertise in projects with a strong potential for innovation and commercialization. Today, he balances work in research with his role as CEO at us4us Ltd., who produces original ultrasound solutions for research, biomedical and industrial applications.</p>
-  </div>
-</div>
-
-<div id="pierre-gruet" class="speaker">
-  <img src="figures/pierre_gruet.jpeg" alt="Pierre Gruet">
-  <div>
-    <h2>Pierre Gruet</h2>
-    <p class="company">Debian</p>
-    <p>Dr. Pierre Gruet holds a PhD in Applied Mathematics and works in the Research and Development department at EDF in France. In addition to his research in statistics and probability, he contributes to the development of the Debian GNU/Linux operating system. His work primarily focuses on packaging computational codes as well as software in fields such as bioinformatics and medical imaging.</p>
-  </div>
-</div>
-
-<div id="william-woof" class="speaker">
-  <img src="figures/william_woof.jpeg" alt="William Woof">
-  <div>
-    <h2>William Woof</h2>
-    <p class="company">eye2gene</p>
-    <p>William Woof is a postdoctoral research fellow in the Pontikos Lab at the UCL Institute of Ophthalmology and Moorfields Eye Hospital. He is the lead AI engineer behind the Eye2Gene project and has worked in ophthalmology for 5 years. He also has experience of living with an inherited eye condition. He has a Master in mathematics from Durham University and a PhD in reinforcement learning from Manchester University. He has a general interest in deep learning applications ranging from video game AI to simulating urban navigation. In his spare time he likes tinkering with mechanical calculators.</p>
-  </div>
-</div>
-
-<div id="gernot-kronreif" class="speaker">
-  <img src="figures/gernot_kronreif.jpeg" alt="Gernot Kronreif">
-  <div>
-    <h2>Gernot Kronreif</h2>
-    <p class="company">ACMIT</p>
+    <h2>Dr. Pape Mady Thiao</h2>
+    <p class="company">Université Cheikh Anta Diop de Dakar (UCAD)</p>
     <p></p>
   </div>
 </div>
 
-<div id="mikael-brudfors" class="speaker">
-  <img src="figures/mikael_brudfors.jpeg" alt="Mikael Brudfors">
+<div id="quentin-boehler" class="speaker">
+  <img src="figures/quentin_boehler.jpeg" alt="Quentin Boehler">
   <div>
-    <h2>Mikael Brudfors</h2>
-    <p class="company">NVIDIA</p>
-    <p>Mikael is a solution architect at NVIDIA, focusing on AI-enabled healthcare in the EMEA region. Mikael also specializes in the integration of NVIDIA software and hardware in both medical device and medical imaging applications. Prior to joining NVIDIA Mikael worked at MedTech startups, and as a researcher at various academic institutions.</p>
-  </div>
-</div>
-  
-<div id="Darren Porras" class="speaker">
-  <img src="figures/darren_porras.jpeg" alt="Darren Porras">
-  <div>
-    <h2>Darren Porras</h2>
-    <p class="company">RTI</p>
-    <p>Darren Porras is the Market Development Manager for Healthcare at RTI. With over 20 years of experience in the medical device industry and product development, he was a program manager at Medtronic for Surgical Robotics. Darren has also held program management and software development roles at Philips Healthcare and Integra Radionics spanning medical imaging, image-guided surgery, and cybersecurity. Darren has a Bachelor of Science in Engineering from Duke University and Master of Science in Biomedical Engineering from the University of Alabama-Birmingham.</p>
+    <h2>Quentin Boehler</h2>
+    <p class="company">ETH Zürich</p>
+    <p></p>
+    <p class="links"><a href="https://mavt.ethz.ch/people/person-detail.MjM1NDA3.TGlzdC81NTksLTE3MDY5NzgwMTc=.html" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
-<div id="sandeep-reddy" class="speaker">
-  <img src="figures/sandeep_reddy.jpeg" alt="Sandeep Reddy">
+<div id="diego-paez-granados" class="speaker">
+  <img src="figures/diego_paez_granados.jpeg" alt="Diego Paez-Granados">
   <div>
-    <h2>Sandeep Reddy</h2>
-    <p class="company">Queensland University of Technology</p>
-    <p> Professor Sandeep Reddy brings exceptional expertise in artificial intelligence implementation in healthcare settings, with strength in developing and evaluating AI-driven healthcare solutions. As the current Professor and Head of Discipline for Healthcare Management and Health Information Management at Queensland University of Technology, he has led numerous significant projects in AI application and healthcare technology integration. His extensive experience includes serving on the WHO Digital Health Roster of Experts and Focus Group on AI for Health, demonstrating his global influence in digital health implementation. Prof. Reddy's research portfolio showcases a strong foundation in developing predictive models and implementing AI systems in healthcare, as evidenced by his recent work developing foundational model-based systems for clinical communication and medical education. His expertise in handling complex healthcare data and creating evaluation frameworks is demonstrated through multiple high-impact publications, including seminal works on AI implementation frameworks. As the author and editor of several authoritative books on AI in healthcare, he brings deep knowledge of both theoretical and practical aspects of AI implementation. His experience in leading projects across diverse geographical and healthcare settings, combined with his work on clinical integration and governance frameworks for AI systems, positions him ideally to lead the development of AI systems.</p>
-  </div>
-</div>
-
-<div id="eshan-dahal" class="speaker">
-  <img src="figures/eshan_dahal.jpeg" alt="Eshan Dahal">
-  <div>
-    <h2>Eshan Dahal</h2>
-    <p class="company">Clinical and Regulatory Affairs Manager at SandboxAQ</p>
-    <p>Eshan is the Clinical and Regulatory Affairs Manager at SandboxAQ, where he is helping to bring the next-generation of AI-enabled medical imaging devices for cardiac care to market. Previously, he was a Senior Staff Scientist at the FDA's Center for Devices and Radiological Health (CDRH) with 9 years of experience in medical imaging and diagnostics. He has helped bring over 60 medical imaging devices to market, ranging from hardware-based imaging systems to AI/ML-based SaMDs. Eshan holds a PhD in Bioengineering from the University of Maryland, College Park.</p>
+    <h2>Diego Paez-Granados</h2>
+    <p class="company">ETH Zürich</p>
+    <p></p>
+    <p class="links"><a href="https://sechealth.ethz.ch/the-lab/people/diego-paez-granados.html" target="_blank" rel="noopener">Webpage</a></p>
   </div>
 </div>
 
