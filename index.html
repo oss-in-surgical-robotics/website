@@ -15,7 +15,7 @@
     body {
       font-family: 'Open Sans', sans-serif;
       scroll-behavior: smooth;
-      background: linear-gradient(180deg, #f5f0fb 0%, #eef3fc 50%, #f5f0fb 100%);
+      background: linear-gradient(180deg, #eef2fb 0%, #e6ecf7 50%, #eef2fb 100%);
       min-height: 100vh;
     }
 
@@ -30,17 +30,17 @@
       pointer-events: none;
     }
 
-    /* Top bar — translucent so orbs show through */
+    /* Top bar — navy, translucent so orbs show through */
     .top-bar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(106, 17, 203, 0.92);
+      background: rgba(20, 40, 90, 0.92);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: white;
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(106, 17, 203, 0.15);
+      box-shadow: 0 4px 20px rgba(20, 40, 90, 0.18);
     }
     header {
       padding: 12px 20px 6px;
@@ -98,7 +98,7 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: rgba(106, 17, 203, 0.96);
+      background-color: rgba(20, 40, 90, 0.96);
       backdrop-filter: blur(10px);
       min-width: 160px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -152,17 +152,19 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(106, 17, 203, 0.10),
+      box-shadow: 0 8px 32px rgba(20, 40, 90, 0.10),
                   0 2px 8px rgba(37, 117, 252, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.6);
       overflow: hidden;
     }
+    /* Iframe auto-grows to fit its content — no inner scrollbar.
+       Page-level scrolling handles everything. */
     iframe {
       width: 100%;
       max-width: 100%;
-      height: 80vh;
+      min-height: 400px;
       border: none;
-      overflow-x: hidden;
+      overflow: hidden;
       background: transparent;
       display: block;
     }
@@ -185,19 +187,55 @@
         margin-top: 185px;
         padding: 16px 12px 30px;
       }
-      iframe {
-        height: 75vh;
-      }
     }
   </style>
   <script>
+    function resizeFrame() {
+      const f = document.getElementById('content-frame');
+      if (!f || !f.contentDocument) return;
+      try {
+        const doc = f.contentDocument;
+        // Reset height first so we measure content, not the iframe itself
+        f.style.height = '0px';
+        const h = Math.max(
+          doc.body ? doc.body.scrollHeight : 0,
+          doc.documentElement ? doc.documentElement.scrollHeight : 0
+        );
+        f.style.height = (h + 20) + 'px';
+      } catch (e) {
+        // Cross-origin or not yet loaded — fall back to a sensible default
+        f.style.height = '80vh';
+      }
+    }
+
     function loadPage(page) {
-      document.getElementById('content-frame').src = page;
+      const f = document.getElementById('content-frame');
+      f.src = page;
     }
+
     function onMobileNavChange(selectEl) {
-      const page = selectEl.value;
-      loadPage(page);
+      loadPage(selectEl.value);
     }
+
+    // Resize whenever the iframe finishes loading
+    window.addEventListener('DOMContentLoaded', () => {
+      const f = document.getElementById('content-frame');
+      f.addEventListener('load', () => {
+        resizeFrame();
+        // Watch the inner doc so resizes (images loading, responsive reflows) also adjust
+        try {
+          const doc = f.contentDocument;
+          if (doc && 'ResizeObserver' in window) {
+            const ro = new ResizeObserver(() => resizeFrame());
+            ro.observe(doc.documentElement);
+          }
+          // Also re-measure shortly after load in case fonts/images shift layout
+          setTimeout(resizeFrame, 250);
+          setTimeout(resizeFrame, 800);
+        } catch (e) { /* cross-origin — skip */ }
+      });
+      window.addEventListener('resize', resizeFrame);
+    });
   </script>
 </head>
 <body>
@@ -248,12 +286,12 @@
 
 <div class="content">
   <div class="content-card">
-    <iframe id="content-frame" src="welcome.html"></iframe>
+    <iframe id="content-frame" src="welcome.html" scrolling="no"></iframe>
   </div>
 </div>
 
 <script>
-  // Floating orb background — subtle, drifting blobs in Hamlyn palette
+  // Floating orb background — subtle drifting blobs, now in a navy palette
   (function() {
     const canvas = document.getElementById('orb-canvas');
     const ctx = canvas.getContext('2d');
@@ -266,16 +304,15 @@
     resize();
     window.addEventListener('resize', resize);
 
-    // Respect user motion preferences — render once and freeze
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Palette matches site gradient: deep purple, mid violet, bright blue
+    // Navy-leaning palette
     const palette = [
-      'rgba(106, 17, 203, 0.18)',   // purple
-      'rgba(138, 67, 217, 0.16)',   // violet
-      'rgba(37, 117, 252, 0.18)',   // blue
-      'rgba(106, 152, 240, 0.14)',  // soft blue
-      'rgba(170, 130, 230, 0.14)',  // lavender
+      'rgba(20, 40, 90, 0.18)',     // deep navy
+      'rgba(30, 60, 130, 0.16)',    // mid navy
+      'rgba(37, 99, 200, 0.16)',    // royal blue
+      'rgba(70, 130, 220, 0.14)',   // soft blue
+      'rgba(100, 150, 230, 0.12)',  // pale blue
     ];
 
     const orbCount = 7;
@@ -284,9 +321,10 @@
       orbs.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        r: 180 + Math.random() * 220,   // large, soft
-        dx: (Math.random() - 0.5) * 0.25,
-        dy: (Math.random() - 0.5) * 0.25,
+        r: 180 + Math.random() * 220,
+        // ~4x faster base drift so the motion is noticeable
+        dx: (Math.random() - 0.5) * 1.0,
+        dy: (Math.random() - 0.5) * 1.0,
         color: palette[i % palette.length],
         phase: Math.random() * Math.PI * 2,
       });
@@ -294,14 +332,14 @@
 
     function draw() {
       ctx.clearRect(0, 0, width, height);
-      const t = performance.now() * 0.0005;
+      // Faster time scale → quicker sinusoidal wobble
+      const t = performance.now() * 0.0015;
 
       orbs.forEach((orb) => {
-        // Drift slowly + gentle sinusoidal wobble so they breathe
-        orb.x += orb.dx + Math.sin(t + orb.phase) * 0.15;
-        orb.y += orb.dy + Math.cos(t + orb.phase) * 0.15;
+        // Larger wobble amplitude on top of the faster drift
+        orb.x += orb.dx + Math.sin(t + orb.phase) * 0.8;
+        orb.y += orb.dy + Math.cos(t + orb.phase) * 0.8;
 
-        // Wrap softly so they re-enter from the other side
         if (orb.x < -orb.r) orb.x = width + orb.r;
         if (orb.x > width + orb.r) orb.x = -orb.r;
         if (orb.y < -orb.r) orb.y = height + orb.r;
