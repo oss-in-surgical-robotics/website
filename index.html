@@ -195,16 +195,32 @@
       if (!f || !f.contentDocument) return;
       try {
         const doc = f.contentDocument;
-        // Reset height first so we measure content, not the iframe itself
-        f.style.height = '0px';
-        const h = Math.max(
-          doc.body ? doc.body.scrollHeight : 0,
-          doc.documentElement ? doc.documentElement.scrollHeight : 0
-        );
-        f.style.height = (h + 20) + 'px';
+        // Measure the inner document directly. We do NOT collapse the iframe
+        // first — doing so briefly shortens the page and the browser snaps the
+        // scroll position upward, causing the "jumping" feel.
+        // Because the inner page has its own height: 100% / min-height rules,
+        // we measure body.scrollHeight from a doc whose <html> we momentarily
+        // let collapse via overflow only, which doesn't affect outer scroll.
+        const body = doc.body;
+        const htmlEl = doc.documentElement;
+        if (!body || !htmlEl) return;
+
+        // Use getBoundingClientRect on body — gives the rendered content height
+        // independent of the iframe's current height.
+        const bodyHeight = body.getBoundingClientRect().height;
+        const scrollHeight = Math.max(body.scrollHeight, htmlEl.scrollHeight);
+        // Trust whichever is larger but stable
+        const h = Math.max(bodyHeight, scrollHeight);
+
+        // Only update if the change is meaningful — avoids constant 1px jitter
+        // from sub-pixel layout shifts that would also nudge the scrollbar.
+        const current = parseFloat(f.style.height) || 0;
+        if (Math.abs(h - current) > 2) {
+          f.style.height = (h + 20) + 'px';
+        }
       } catch (e) {
         // Cross-origin or not yet loaded — fall back to a sensible default
-        f.style.height = '80vh';
+        if (!f.style.height) f.style.height = '80vh';
       }
     }
 
