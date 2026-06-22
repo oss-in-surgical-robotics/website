@@ -195,31 +195,19 @@
       if (!f || !f.contentDocument) return;
       try {
         const doc = f.contentDocument;
-        // Measure the inner document directly. We do NOT collapse the iframe
-        // first — doing so briefly shortens the page and the browser snaps the
-        // scroll position upward, causing the "jumping" feel.
-        // Because the inner page has its own height: 100% / min-height rules,
-        // we measure body.scrollHeight from a doc whose <html> we momentarily
-        // let collapse via overflow only, which doesn't affect outer scroll.
         const body = doc.body;
         const htmlEl = doc.documentElement;
         if (!body || !htmlEl) return;
 
-        // Use getBoundingClientRect on body — gives the rendered content height
-        // independent of the iframe's current height.
         const bodyHeight = body.getBoundingClientRect().height;
         const scrollHeight = Math.max(body.scrollHeight, htmlEl.scrollHeight);
-        // Trust whichever is larger but stable
         const h = Math.max(bodyHeight, scrollHeight);
 
-        // Only update if the change is meaningful — avoids constant 1px jitter
-        // from sub-pixel layout shifts that would also nudge the scrollbar.
         const current = parseFloat(f.style.height) || 0;
         if (Math.abs(h - current) > 2) {
           f.style.height = (h + 20) + 'px';
         }
       } catch (e) {
-        // Cross-origin or not yet loaded — fall back to a sensible default
         if (!f.style.height) f.style.height = '80vh';
       }
     }
@@ -227,6 +215,9 @@
     function loadPage(page) {
       const f = document.getElementById('content-frame');
       f.src = page;
+      // Update the URL hash to reflect the current page (without causing a jump)
+      history.replaceState(null, '', '#' + page.replace('.html', ''));
+      return false;
     }
 
     function onMobileNavChange(selectEl) {
@@ -238,14 +229,12 @@
       const f = document.getElementById('content-frame');
       f.addEventListener('load', () => {
         resizeFrame();
-        // Watch the inner doc so resizes (images loading, responsive reflows) also adjust
         try {
           const doc = f.contentDocument;
           if (doc && 'ResizeObserver' in window) {
             const ro = new ResizeObserver(() => resizeFrame());
             ro.observe(doc.documentElement);
           }
-          // Also re-measure shortly after load in case fonts/images shift layout
           setTimeout(resizeFrame, 250);
           setTimeout(resizeFrame, 800);
         } catch (e) { /* cross-origin — skip */ }
@@ -265,20 +254,19 @@
   </header>
 
   <nav class="desktop-nav">
-    <a href="#" onclick="loadPage('welcome.html')">Welcome</a>
-    <a href="#" onclick="loadPage('program.html')">Program</a>
-    <a href="#" onclick="loadPage('speakers.html')">Speakers</a>
-    <a href="#" onclick="loadPage('panelists.html')">Panellists</a>
-    <a href="#" onclick="loadPage('callforposters.html')">Call for posters</a>
-    <a href="#" onclick="loadPage('importantdates.html')">Important Dates</a>
-    <!-- <a href="#" onclick="loadPage('FAQ.html')">White Paper</a> -->
-    <a href="#" onclick="loadPage('organisers.html')">Organisers</a>
+    <a href="javascript:void(0)" onclick="loadPage('welcome.html')">Welcome</a>
+    <a href="javascript:void(0)" onclick="loadPage('program.html')">Program</a>
+    <a href="javascript:void(0)" onclick="loadPage('speakers.html')">Speakers</a>
+    <a href="javascript:void(0)" onclick="loadPage('panelists.html')">Panellists</a>
+    <a href="javascript:void(0)" onclick="loadPage('callforposters.html')">Call for posters</a>
+    <a href="javascript:void(0)" onclick="loadPage('importantdates.html')">Important Dates</a>
+    <a href="javascript:void(0)" onclick="loadPage('organisers.html')">Organisers</a>
     <div class="dropdown">
       <button class="dropbtn">All years &#9662;</button>
       <div class="dropdown-content">
-        <a href="#" onclick="loadPage('2025.html')">2025</a>
-        <a href="#" onclick="loadPage('2024.html')">2024</a>
-        <a href="#" onclick="loadPage('2023.html')">2023</a>
+        <a href="javascript:void(0)" onclick="loadPage('2025.html')">2025</a>
+        <a href="javascript:void(0)" onclick="loadPage('2024.html')">2024</a>
+        <a href="javascript:void(0)" onclick="loadPage('2023.html')">2023</a>
       </div>
     </div>
   </nav>
@@ -291,7 +279,6 @@
       <option value="panelists.html">Panellists</option>
       <option value="callforposters.html">Call for posters</option>
       <option value="importantdates.html">Important Dates</option>
-      <!-- <option value="FAQ.html">White Paper</option> -->
       <option value="organisers.html">Organisers</option>
       <optgroup label="All years">
         <option value="2025.html">2025</option>
@@ -326,11 +313,11 @@
 
     // Navy-leaning palette
     const palette = [
-      'rgba(20, 40, 90, 0.18)',     // deep navy
-      'rgba(30, 60, 130, 0.16)',    // mid navy
-      'rgba(37, 99, 200, 0.16)',    // royal blue
-      'rgba(70, 130, 220, 0.14)',   // soft blue
-      'rgba(100, 150, 230, 0.12)',  // pale blue
+      'rgba(20, 40, 90, 0.18)',
+      'rgba(30, 60, 130, 0.16)',
+      'rgba(37, 99, 200, 0.16)',
+      'rgba(70, 130, 220, 0.14)',
+      'rgba(100, 150, 230, 0.12)',
     ];
 
     const orbCount = 7;
@@ -340,7 +327,6 @@
         x: Math.random() * width,
         y: Math.random() * height,
         r: 180 + Math.random() * 220,
-        // ~4x faster base drift so the motion is noticeable
         dx: (Math.random() - 0.5) * 1.0,
         dy: (Math.random() - 0.5) * 1.0,
         color: palette[i % palette.length],
@@ -350,11 +336,9 @@
 
     function draw() {
       ctx.clearRect(0, 0, width, height);
-      // Faster time scale → quicker sinusoidal wobble
       const t = performance.now() * 0.0015;
 
       orbs.forEach((orb) => {
-        // Larger wobble amplitude on top of the faster drift
         orb.x += orb.dx + Math.sin(t + orb.phase) * 0.8;
         orb.y += orb.dy + Math.cos(t + orb.phase) * 0.8;
 
